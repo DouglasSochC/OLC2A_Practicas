@@ -4,11 +4,9 @@ _Este repositorio te conduce a traves de las diferentes practicas realizadas en 
 
 ## 📋 Catalogo
 
-### Ejemplo JAVA
+### [**Ejemplo Cup-JLex**](https://github.com/DouglasSochC/OLC2-Practicas/tree/main/EjemploCupJLex)<br>
 
 Este es un ejemplo inicial para aprender a utilizar Cup y JLex, fue obtenido del siguiente [**enlace**]( https://ericknavarro.io/2019/04/25/01-Mi-primer-proyecto-utilizando-Jlex-y-Cup-Linux/)<br>
-
-[**Ejemplo Cup-JLex**](https://github.com/DouglasSochC/OLC2-Practicas/tree/main/EjemploCupJLex)<br>
 
 ### [**Practica 1**](https://github.com/DouglasSochC/OLC2A_Practicas/tree/main/Practica1)
 
