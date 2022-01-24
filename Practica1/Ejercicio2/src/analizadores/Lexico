@@ -1,0 +1,39 @@
+/*
+ * Ejercicio desarrollado por Douglas Soch
+ * Github: https://github.com/DouglasSochC
+ * Enero - 2022
+ */
+
+package analizadores;
+import java_cup.runtime.Symbol; 
+
+%% 
+%class Lexico
+%public 
+%line 
+%char 
+%cup 
+%unicode
+%ignorecase
+
+%init{ 
+	yyline = 1; 
+	yychar = 1; 
+%init} 
+
+BLANCOS=[ \r\t]+
+NU=1
+NC=0
+
+%%
+
+\n {yychar=1;}
+
+{BLANCOS} {} 
+{NU} {return new Symbol(sym.NUMERO_UNO,yyline,yychar, yytext());} 
+{NC} {return new Symbol(sym.NUMERO_CERO,yyline,yychar, yytext());} 
+
+. {
+	System.out.println("Este es un error lexico: "+yytext()+
+	", en la linea: "+yyline+", en la columna: "+yychar);
+}

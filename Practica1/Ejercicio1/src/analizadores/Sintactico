@@ -1,0 +1,62 @@
+/*
+ * Ejemplo desarrollado por Erick Navarro
+ * Blog: e-navarro.blogspot.com
+ * Septiembre - 2015
+ */
+
+package analizadores; 
+import java_cup.runtime.*;
+
+parser code 
+{:
+    String texto = "";
+    String primera_palabra = "";
+    String palabras_siguientes = "";
+    int contador = 0;
+    /**
+     * Método al que se llama automáticamente ante algún error sintactico.
+     **/ 
+    public void syntax_error(Symbol s){ 
+        System.out.println("Error Sintáctico en la Línea " + (s.left) +
+        " Columna "+s.right+ ". No se esperaba este componente: " +s.value+"."); 
+    } 
+
+    /**
+     * Método al que se llama automáticamente ante algún error sintáctico 
+     * en el que ya no es posible una recuperación de errores.
+     **/ 
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        System.out.println("Error síntactico irrecuperable en la Línea " + 
+        (s.left)+ " Columna "+s.right+". Componente " + s.value + 
+        " no reconocido."); 
+    }
+
+    public void ordernarPalabras(String out){
+        if(contador == 0){
+            primera_palabra = out;
+        }else{
+            palabras_siguientes = palabras_siguientes == "" ? out: palabras_siguientes + "," + out;
+        }
+    }
+
+:} 
+
+terminal String COMA;
+terminal String PALABRA;
+terminal String PUNTO;
+
+non terminal ini;
+non terminal instrucciones;
+non terminal plb;
+
+start with ini; 
+
+ini::=instrucciones {: System.out.println(palabras_siguientes + "," + primera_palabra + "."); :};
+
+instrucciones ::= plb:upalabra COMA instrucciones 
+    | plb:fpalabra PUNTO 
+    | error instrucciones
+;
+
+plb ::= PALABRA:upalabra {: ordernarPalabras(upalabra); contador = contador + 1; :}
+;
