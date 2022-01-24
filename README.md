@@ -10,7 +10,7 @@ Este es un ejemplo inicial para aprender a utilizar Cup y JLex, fue obtenido del
 
 [**Ejemplo Cup-JLex**](https://github.com/DouglasSochC/OLC2-Practicas/tree/main/EjemploCupJLex)<br>
 
-### Practica 1
+### [**Practica 1**](https://github.com/DouglasSochC/OLC2A_Practicas/tree/main/Practica1)
 
 1. Escriba una gramática que reconozca una lista de palabras y que imprima la lista de plabras de tal manera que la primera palabra este de último<br>
   **Ejemplo:**<br>
